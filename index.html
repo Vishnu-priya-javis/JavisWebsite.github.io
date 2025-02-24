@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javis - Order to Cash Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+        .carousel {
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            transition: opacity 1s ease-in-out;
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        .input-section input, .input-section textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .input-section button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Section -->
+    <div class="section">
+        <div class="carousel">
+            <div class="carousel-track" id="carousel1">
+                <div class="carousel-slide">Javis: We aspire to make the Order to Cash Process Seamless</div>
+                <div class="carousel-slide">Join us to get away from the Lower fill rates, hectic month ends and tedious reconciliations</div>
+                <div class="carousel-slide">Let's build a sustainable Future Together</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="section">
+        <div class="carousel">
+            <div class="carousel-track" id="carousel2">
+                <div class="carousel-slide">We are the single destination for all your integrations</div>
+                <div class="carousel-slide">We connect with all the Customers in India</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Sections with Input Fields -->
+    <div class="section">
+        <h2>Share your thoughts</h2>
+        <div class="input-section">
+            <input type="text" placeholder="Your Name">
+            <textarea placeholder="Your Message"></textarea>
+            <button>Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function startCarousel(carouselId, interval) {
+            const track = document.getElementById(carouselId);
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % track.children.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }, interval);
+        }
+
+        startCarousel("carousel1", 10000);
+        startCarousel("carousel2", 10000);
+    </script>
+</body>
+</html>
