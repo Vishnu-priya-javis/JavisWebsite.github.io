@@ -61,9 +61,48 @@
             font-size: 16px;
             border-radius: 5px;
         }
+        .video-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+        }
+        .video-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
+    <!-- Video Section -->
+    <div class="video-section">
+        <div class="video-text">Welcome to Javis!</div>
+        <video autoplay loop muted>
+            <source src="https://cdn.vecteezy.com/system/resources/previews/002/102/425/original/abstract-round-blue-ring-of-lines-hud-elements-circles-energy-futuristic-scientific-hi-tech-digital-abstract-hud-background-video-4k-60-fps-free-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <!-- Landing Section -->
     <div class="section">
         <div class="carousel">
