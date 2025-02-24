@@ -97,8 +97,8 @@
     <!-- Video Section -->
     <div class="video-section">
         <div class="video-text">Welcome to Javis!</div>
-        <video autoplay loop muted>
-            <source src="https://cdn.vecteezy.com/system/resources/previews/002/102/425/original/abstract-round-blue-ring-of-lines-hud-elements-circles-energy-futuristic-scientific-hi-tech-digital-abstract-hud-background-video-4k-60-fps-free-video.mp4" type="video/mp4">
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="https://cdn.vecteezy.com/system/resources/previews/001/944/113/original/futuristic-blue-wave-surface-animation-technology-background-free-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -146,6 +146,18 @@
 
         startCarousel("carousel1", 10000);
         startCarousel("carousel2", 10000);
+
+        // Ensure background video plays automatically
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("bg-video");
+            video.play().then(() => {
+                console.log("Video autoplay started");
+            }).catch(error => {
+                console.log("Autoplay prevented: ", error);
+                // Force play on user interaction
+                document.addEventListener("click", () => video.play(), { once: true });
+            });
+        });
     </script>
 </body>
 </html>
