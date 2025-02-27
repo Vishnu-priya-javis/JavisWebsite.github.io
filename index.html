@@ -103,12 +103,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 1;
+            opacity: 0.2;
             z-index: -1;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="#">Home</a>
         <a href="#">Our Services</a>
@@ -116,6 +117,7 @@
         <a href="#">Contact Us</a>
     </div>
     
+    <!-- New Top Section with Background Video -->
     <div class="section">
         <video class="background-video" autoplay loop muted>
             <source src="https://videos.pexels.com/video-files/3129977/3129977-uhd_2560_1440_30fps.mp4" type="video/mp4">
@@ -125,6 +127,7 @@
         </div>
     </div>
 
+    <!-- Landing Section with Background Images -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel1">
@@ -133,17 +136,18 @@
                     Javis: We aspire to make the Order to Cash Process Seamless
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://media.istockphoto.com/id/1402430797/photo/business-3d-tablet-virtual-growth-arrow-financial-graph-on-digital-technology-strategy.jpg" alt="Growth Arrow">
+                    <img src="https://media.istockphoto.com/id/1402430797/photo/business-3d-tablet-virtual-growth-arrow-financial-graph-on-digital-technology-strategy.jpg?s=612x612&w=0&k=20&c=OKYWpTE-G2OYQu7wKjfEiUZQWVnf7XVPuJNlj7X7tAI=" alt="Growth Arrow">
                     Join us to get away from the Lower fill rates, hectic month ends and tidious reconciliations
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://imageio.forbes.com/specials-images/imageserve/6200b0dddcf32d3be937fa84/0x0.jpg" alt="Future Tech">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/6200b0dddcf32d3be937fa84/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="Future Tech">
                     Let's build a sustainable Future Together
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Second Section with Background Videos -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel2">
@@ -164,16 +168,16 @@
     </div>
 
     <script>
-        function startCarousel(carouselId, interval) {
-            const carousel = document.getElementById(carouselId);
+        function startCarousel(carouselId, slideCount, intervalTime) {
+            const track = document.getElementById(carouselId);
             let index = 0;
             setInterval(() => {
-                index = (index + 1) % carousel.children.length;
-                carousel.style.transform = `translateX(-${index * 100}%)`;
-            }, interval);
+                index = (index + 1) % slideCount;
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }, intervalTime);
         }
-        startCarousel('carousel1', 5000);
-        startCarousel('carousel2', 3000);
+        startCarousel("carousel1", 3, 5000);
+        startCarousel("carousel2", 2, 3000);
     </script>
 </body>
 </html>
