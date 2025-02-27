@@ -85,7 +85,6 @@
         }
         .carousel-track {
             display: flex;
-            width: 300%;
             transition: transform 1s ease-in-out;
         }
         .carousel-slide {
@@ -99,21 +98,12 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
-        .carousel-slide img {
+        .carousel-slide img, .carousel-slide video {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
             opacity: 0.2;
-            z-index: -1;
-        }
-        .carousel-slide video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             z-index: -1;
         }
     </style>
@@ -178,16 +168,16 @@
     </div>
 
     <script>
-        function startCarousel(carouselId) {
+        function startCarousel(carouselId, slideCount, intervalTime) {
             const track = document.getElementById(carouselId);
             let index = 0;
             setInterval(() => {
-                index = (index + 1) % 3;
+                index = (index + 1) % slideCount;
                 track.style.transform = `translateX(-${index * 100}%)`;
-            }, 5000);
+            }, intervalTime);
         }
-        startCarousel("carousel1");
-        startCarousel("carousel2");
+        startCarousel("carousel1", 3, 5000);
+        startCarousel("carousel2", 2, 3000);
     </script>
 </body>
 </html>
