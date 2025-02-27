@@ -16,6 +16,29 @@
             color: white;
             overflow-x: hidden;
         }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #202124;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border-radius: 20px;
+            transition: background 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
         .section {
             height: 100vh;
             display: flex;
@@ -24,10 +47,37 @@
             flex-direction: column;
             padding: 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .tech-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+        }
+        .tech-subtitle {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: rgba(0, 255, 255, 0.8);
         }
         .carousel {
             position: relative;
-            width: 80%;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -39,125 +89,96 @@
         }
         .carousel-slide {
             min-width: 100%;
-            transition: opacity 1s ease-in-out;
-        }
-        .input-section {
-            margin-top: 20px;
-        }
-        .input-section input, .input-section textarea {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .input-section button {
-            padding: 10px 20px;
-            background-color: #ff6600;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        .video-section {
             height: 100vh;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: black;
-            overflow: hidden;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-        .video-section video {
+        .carousel-slide img, .carousel-slide video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        .video-text {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2em;
-            font-weight: bold;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 10px;
+            opacity: 0.2;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <!-- Video Section -->
-    <div class="video-section">
-        <div class="video-text">Welcome to Javis!</div>
-        <video id="bg-video" autoplay loop muted playsinline>
-            <source src="https://cdn.vecteezy.com/system/resources/previews/001/944/113/original/futuristic-blue-wave-surface-animation-technology-background-free-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Our Services</a>
+        <a href="#">Our Team</a>
+        <a href="#">Contact Us</a>
+    </div>
+    
+    <!-- New Top Section with Background Video -->
+    <div class="section">
+        <video class="background-video" autoplay loop muted>
+            <source src="https://videos.pexels.com/video-files/3129977/3129977-uhd_2560_1440_30fps.mp4" type="video/mp4">
         </video>
+        <div class="tech-text">Welcome to Javis.ai
+            <div class="tech-subtitle">The world of Automation</div>
+        </div>
     </div>
 
-    <!-- Landing Section -->
+    <!-- Landing Section with Background Images -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel1">
-                <div class="carousel-slide">Javis: We aspire to make the Order to Cash Process Seamless</div>
-                <div class="carousel-slide">Join us to get away from the Lower fill rates, hectic month ends and tedious reconciliations</div>
-                <div class="carousel-slide">Let's build a sustainable Future Together</div>
+                <div class="carousel-slide">
+                    <img src="https://www.ascend.io/wp-content/uploads/2022/02/automation-1024x571.jpg" alt="Automation">
+                    Javis: We aspire to make the Order to Cash Process Seamless
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://media.istockphoto.com/id/1402430797/photo/business-3d-tablet-virtual-growth-arrow-financial-graph-on-digital-technology-strategy.jpg?s=612x612&w=0&k=20&c=OKYWpTE-G2OYQu7wKjfEiUZQWVnf7XVPuJNlj7X7tAI=" alt="Growth Arrow">
+                    Join us to get away from the Lower fill rates, hectic month ends and tidious reconciliations
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/6200b0dddcf32d3be937fa84/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="Future Tech">
+                    Let's build a sustainable Future Together
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Second Section -->
+    <!-- Second Section with Background Videos -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel2">
-                <div class="carousel-slide">We are the single destination for all your integrations</div>
-                <div class="carousel-slide">We connect with all the Customers in India</div>
+                <div class="carousel-slide">
+                    <video class="background-video" autoplay loop muted>
+                        <source src="https://videos.pexels.com/video-files/2792370/2792370-sd_640_360_30fps.mp4" type="video/mp4">
+                    </video>
+                    We are the single destination for all your integrations
+                </div>
+                <div class="carousel-slide">
+                    <video class="background-video" autoplay loop muted>
+                        <source src="https://videos.pexels.com/video-files/3141211/3141211-sd_640_360_25fps.mp4" type="video/mp4">
+                    </video>
+                    We connect with all the Customers in India
+                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Additional Sections with Input Fields -->
-    <div class="section">
-        <h2>Share your thoughts</h2>
-        <div class="input-section">
-            <input type="text" placeholder="Your Name">
-            <textarea placeholder="Your Message"></textarea>
-            <button>Submit</button>
         </div>
     </div>
 
     <script>
-        function startCarousel(carouselId, interval) {
+        function startCarousel(carouselId) {
             const track = document.getElementById(carouselId);
             let index = 0;
-            setInterval(() => {
+            function moveSlides() {
                 index = (index + 1) % track.children.length;
                 track.style.transform = `translateX(-${index * 100}%)`;
-            }, interval);
+            }
+            setInterval(moveSlides, 5000);
         }
-
-        startCarousel("carousel1", 10000);
-        startCarousel("carousel2", 10000);
-
-        // Ensure background video plays automatically
-        document.addEventListener("DOMContentLoaded", function () {
-            const video = document.getElementById("bg-video");
-            video.play().then(() => {
-                console.log("Video autoplay started");
-            }).catch(error => {
-                console.log("Autoplay prevented: ", error);
-                // Force play on user interaction
-                document.addEventListener("click", () => video.play(), { once: true });
-            });
-        });
+        startCarousel("carousel1");
+        startCarousel("carousel2");
     </script>
 </body>
 </html>
