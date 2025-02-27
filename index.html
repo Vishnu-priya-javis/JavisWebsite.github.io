@@ -109,7 +109,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="#">Home</a>
         <a href="#">Our Services</a>
@@ -117,7 +116,6 @@
         <a href="#">Contact Us</a>
     </div>
     
-    <!-- New Top Section with Background Video -->
     <div class="section">
         <video class="background-video" autoplay loop muted>
             <source src="https://videos.pexels.com/video-files/3129977/3129977-uhd_2560_1440_30fps.mp4" type="video/mp4">
@@ -127,7 +125,6 @@
         </div>
     </div>
 
-    <!-- Landing Section with Background Images -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel1">
@@ -147,7 +144,6 @@
         </div>
     </div>
 
-    <!-- Second Section with Background Videos -->
     <div class="section">
         <div class="carousel">
             <div class="carousel-track" id="carousel2">
@@ -166,19 +162,17 @@
             </div>
         </div>
     </div>
-
     <script>
-        function startCarousel(carouselId) {
-            const track = document.getElementById(carouselId);
+        function startCarousel(carouselId, interval) {
+            const carousel = document.getElementById(carouselId);
             let index = 0;
-            function moveSlides() {
-                index = (index + 1) % track.children.length;
-                track.style.transform = `translateX(-${index * 100}%)`;
-            }
-            setInterval(moveSlides, 5000);
+            setInterval(() => {
+                index = (index + 1) % carousel.children.length;
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+            }, interval);
         }
-        startCarousel("carousel1");
-        startCarousel("carousel2");
+        startCarousel("carousel1", 5000);
+        startCarousel("carousel2", 5000);
     </script>
 </body>
 </html>
